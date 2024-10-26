@@ -17,4 +17,5 @@ export type Props = API<Data, Cache>;
 
 export const defaultData: Data = {
   category: "inspire",
+  apiKey: "none by default"
 };

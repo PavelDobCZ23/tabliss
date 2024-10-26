@@ -6,6 +6,15 @@ const IpInfoSettings: React.FC<Props> = ({ data = defaultData, setData }) => (
     <label>
       <input
         type="checkbox"
+        checked={data.displayIp}
+        onChange={() => setData({ ...data, displayIp: !data.displayIp })}
+      />
+      Display IP Address
+    </label>
+
+    <label>
+      <input
+        type="checkbox"
         checked={data.displayCity}
         onChange={() => setData({ ...data, displayCity: !data.displayCity })}
       />
