@@ -18,8 +18,8 @@ const IpInfo: React.FC<Props> = ({
     return null;
   }
 
-  const info = [cache.ip];
-  if (data.displayCity) info.push(cache.ip);
+  const info = [];
+  if (data.displayIp) info.push(cache.ip);
   if (data.displayCity) info.push(cache.city);
   if (data.displayCountry) info.push(cache.country);
 

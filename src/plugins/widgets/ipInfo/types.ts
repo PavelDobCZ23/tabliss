@@ -17,7 +17,7 @@ type Cache = IpData;
 export type Props = API<Data, Cache>;
 
 export const defaultData: Data = {
-  displayIp: false,
+  displayIp: true,
   displayCity: true,
   displayCountry: true,
 };
