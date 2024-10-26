@@ -61,8 +61,8 @@ async function getBibleVerse(apiKey?: string) {
     "https://quotes.rest/bible/vod.json",
     {
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
       }
     }
   );

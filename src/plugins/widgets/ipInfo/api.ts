@@ -4,7 +4,14 @@ import { IpData } from "./types";
 export async function getIpInfo(loader: API["loader"]): Promise<IpData> {
   loader.push();
 
-  const data = await fetch("https://ipwho.is/")
+  const data = await fetch(
+    "https://ipwho.is/",
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      }
+    }
+  )
     .then((res) => res.json())
     .finally(() => loader.pop());
 
