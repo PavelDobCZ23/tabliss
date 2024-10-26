@@ -8,6 +8,7 @@ export type Quote = {
 
 type Data = {
   category?: string;
+  apiKey?: string;
 };
 
 type Cache = Quote;

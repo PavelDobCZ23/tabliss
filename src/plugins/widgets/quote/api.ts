@@ -18,9 +18,15 @@ async function getDeveloperExcuse() {
 }
 
 // Get quote of the day
-async function getQuoteOfTheDay(category?: string) {
+async function getQuoteOfTheDay(category?: string,apiKey?: string) {
   const res = await fetch(
     "https://quotes.rest/qod.json" + (category ? `?category=${category}` : ""),
+    {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      }
+    }
   );
   const body = await res.json();
 
@@ -50,8 +56,16 @@ async function getQuoteOfTheDay(category?: string) {
 }
 
 // Get bible verse of the day
-async function getBibleVerse() {
-  const res = await fetch("https://quotes.rest/bible/vod.json");
+async function getBibleVerse(apiKey?: string) {
+  const res = await fetch(
+    "https://quotes.rest/bible/vod.json",
+    {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      }
+    }
+  );
 
   const body = await res.json();
 
@@ -83,6 +97,7 @@ async function getBibleVerse() {
 export async function getQuote(
   loader: API["loader"],
   category: string,
+  apiKey: string,
 ): Promise<Quote> {
   loader.push();
 
@@ -90,8 +105,8 @@ export async function getQuote(
     category === "developerexcuses"
       ? await getDeveloperExcuse()
       : category === "bible"
-        ? await getBibleVerse()
-        : await getQuoteOfTheDay(category);
+        ? await getBibleVerse(apiKey)
+        : await getQuoteOfTheDay(category,apiKey);
 
   loader.pop();
 
